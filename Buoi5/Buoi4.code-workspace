@@ -1,0 +1,13 @@
+{
+	"folders": [
+		{
+			"path": "../Buoi4"
+		},
+		{
+			"path": "."
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "Buoi5"
+	}
+}

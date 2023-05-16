@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ol>
+        <li>
+            <span style="display: inline-block;">
+                <p id="time1" style="display: -webkit-inline-flex;">02:18</p>
+                <input onclick="start()" id="startbtn1" type="button" value="Start" style="display: -webkit-inline-flex;"/>
+                <input onclick="stop()" id="stopbtn1" type="button" value="Stop" style="display: -webkit-inline-flex;"/>
+            </span>
+        </li>
+      </ol> 
+      <input id="stopAll" type="button" value="Stop all" style="display: -webkit-inline-flex;"/>
+    
+
+      <script>
+        const startMinutes = 13.5;
+        let time = startMinutes * 60;
+
+        function start() {
+            setInterval(updateCountdown, 1000);
+        }
+
+        function updateCountdown() {
+            const minutes = Math.floor(time/60);
+            let seconds = time % 60;
+            startMinutes.innerHTML = `${minutes}:${seconds}`;
+        }
+
+        function stop() {
+            startMinutes.innerHTML = `${"00"}:${"00"}`;
+            clearInterval(start());
+        }
+      </script>
+</body>
+</html>
