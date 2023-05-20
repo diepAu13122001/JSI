@@ -4,7 +4,7 @@ import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com
 class Register {
   $containerDiv
   $titleHeader
-  $signupForm
+  $signupForm 
   $emailInputEmail
   $nameInputTxt
   $passInputPass
@@ -82,7 +82,7 @@ class Register {
      if(userName == "") {
       alert("Username cannot be empty!");
       return;
-     }
+     } 
      if(confirmPass == "") {
       alert("Confirm your password!");
       return;

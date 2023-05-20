@@ -1,83 +1,84 @@
-// class Clock {
-//     $date
-//     constructor(min, sec) {
-//         this.$date = new Date(2023, 1, 1, 0, min, sec);
-//     }
+class Clock {
+    constructor(index, min, sec) {
+        this.started = false;
+        this.index = index;
+        this.date = new Date(0, 0, 0, 0, min, sec);
+        this.intervalId = null;
+    }
 
-//     getSecond() {
-//         return this.$date.getSeconds();
-//     }
+    start() {
+        this.intervalId = setInterval(() => {
+            this.date.setSeconds(this.date.getSeconds() + 1);
+            this.changeGUI();
+        }, 1000);
+        this.started = true;
+    }
 
-//     getMinute() {
-//         return this.$date.getMinutes();
-//     }
+    stop() {
+        clearInterval(this.intervalId);
+        this.started = false;
+    }
 
-//     setSecond(second) {
-//         this.$date.setSeconds(second);
-//     }
+    changeGUI() {
+        const li = document.getElementById(this.index);
+        li.innerHTML = `<div>${this.date.getMinutes()}:${this.date.getSeconds()}</div>`
+            + `<button onclick="start(${this.index})">Start</button>`
+            + `<button onclick="stop(${this.index})">Stop</button>`;
 
-//     setMinute(minute) {
-//         this.$date.setMinutes(minute);
-//     }
-//     handleStartBtn = setInterval(this.start, 1000);
-//     start() {
-//         this.setSecond(this.getSecond() + 1);
-//     }
-
-//     stop() {
-//         clearInterval(handleStartBtn);
-//         this.setSecond(0);
-//         this.setMinute(0);
-//     }
-// }
-//----- Create data--------
-const clockList = [
-    { "index": 1, "date": new Date(2023, 1, 1, 0, 2, 3) },
-    { "index": 1, "date": new Date(2023, 1, 1, 0, 2, 3) },
-    { "index": 1, "date": new Date(2023, 1, 1, 0, 2, 3) },
-    { "index": 1, "date": new Date(2023, 1, 1, 0, 2, 3) }
-];
-
-//-------- Start ------------
-const start = setInterval(function () {
-    const element = clockList.filter(clock => clock.index == 0);
-    console.log(element);
-    element.getSeconds
-}, 1000);
-
-//------- Code font end ----------
-const ol = document.getElementById('clock-list');
-function setFontend() {
-    for (let index = 0; index < clockList.length; index++) {
-        const element = clockList[index];
-
-        const li = document.createElement('li');
-
-        let time = element.getMinute() + ":" + element.getSecond();
-
-        const startbtn = document.createElement('button');
-        startbtn.innerHTML = "Start";
-        startbtn.addEventListener("click", element.handleStartBtn);
-
-        const stopbtn = document.createElement('button');
-        stopbtn.innerHTML = "Stop";
-        stopbtn.addEventListener("click", element.stop);
-
-        li.innerHTML = time;
-        li.appendChild(startbtn);
-        li.appendChild(stopbtn);
-        ol.appendChild(li);
     }
 }
 
-setFontend();
+//----- Create data--------
+const clockList = [
+    new Clock(0, 12, 3, false),
+    new Clock(1, 1, 3, false),
+    new Clock(2, 0, 0, false),
+    new Clock(3, 9, 59, false),
+    new Clock(4, 0, 55, false),
+];
+
+//------- Functions ----------
+function start(index) {
+    if (clockList[index].started == false)
+        clockList[index].start();
+}
+
+function stop(index) {
+    if (clockList[index].started == true) {
+        clockList[index].stop();
+        clockList[index] = new Clock(index, 0, 0);
+        clockList[index].changeGUI();
+    }
+}
+
+//--------- Code fontend ------------
+const ol = document.getElementById('clock-list');
+ol.innerHTML = "";
+
+for (let index = 0; index < clockList.length; index++) {
+    let element = clockList[index];
+    setFontend(element);
+
+}
+function setFontend(clock) {
+    const li = document.createElement('li');
+    li.id = clock.index;
+
+    let time = document.createElement('div');
+    time.innerHTML = `${clock.date.getMinutes()}:${clock.date.getSeconds()}`;
+
+    li.appendChild(time);
+    li.innerHTML += `<button onclick="start(${clock.index})">Start</button>`;
+    li.innerHTML += `<button onclick="stop(${clock.index})">Stop</button>`;
+    ol.appendChild(li);
+}
 
 //----- Stop all ---------
 function stopAll() {
     for (let index = 0; index < clockList.length; index++) {
-        clockList[index] = new Clock(0, 0);
+        stop(index);
     }
-    setFontend();
 }
+
 
 

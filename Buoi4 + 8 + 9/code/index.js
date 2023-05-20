@@ -1,29 +1,30 @@
-import Login from "./login.js";
+import Login from "./login.js"
 
 class App {
     activeScreen
     container
 
-    constructor (container) {
-        this.container = container;
+    constructor(container){
+        this.container = container
     }
 
-    changeActiveScreen (screen) {
-        if (this.activeScreen !== undefined) {
-            // set lai gia tri cho container neu da hien thi signin hoac signup
-            this.container.innerHTML = ""; 
+    changeActiveScreen(screen) {
+        if (this.activeScreen !== undefined){
+            this.container.innerHTML = ""
         }
 
-        this.activeScreen = screen;
-        this.activeScreen.initRender(this.container);
+        this.activeScreen = screen
+        this.activeScreen.initRender(this.container)
     }
 }
 
-const container = document.getElementById("app");
-const login = new Login();
+const container = document.getElementById("app")
 
-const app = new App (container);
-app.changeActiveScreen(login);
-console.log(container)
+const login = new Login()
 
-export default App;
+const app = new App(container)
+app.changeActiveScreen(login)
+
+
+//export instant của app chứ ko export class vì App là duy nhất 
+export default app;
