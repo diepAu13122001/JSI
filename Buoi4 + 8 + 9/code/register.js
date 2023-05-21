@@ -1,3 +1,4 @@
+import app from "./index.js" 
 import Login from "./login.js";
 import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.21.0/firebase-auth.js";
 
@@ -33,7 +34,7 @@ class Register {
     this.$submitBtn.type = "submit";
     this.$submitBtn.innerHTML = "Register"; // <button> Register </button>
     this.$submitBtn.addEventListener("click", this.handleSubmit);
-
+ 
     this.$gotoSigninLink = document.createElement("a");
     this.$gotoSigninLink.innerHTML = "You already have account? Signin now";
     this.$gotoSigninLink.addEventListener("click", this.gotoSignin);
@@ -104,8 +105,6 @@ class Register {
         const errorCode = error.code;
         const errorMessage = error.message;
         alert(errorMessage);
-
-        // ..
       });
   }
 

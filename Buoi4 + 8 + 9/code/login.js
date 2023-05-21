@@ -1,4 +1,4 @@
-import app from "./index.js"
+import app from "./index.js" 
 import Register from "./register.js"
 import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.21.0/firebase-auth.js";
 
@@ -73,6 +73,7 @@ class Login {
       .then((userCredential) => {
         // Signed in 
         const user = userCredential.user;
+        document.getElementById("app").innerHTML += `<div>succeed</div>`;
         // ...
       })
       .catch((error) => {

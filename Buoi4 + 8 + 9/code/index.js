@@ -13,7 +13,7 @@ class App {
             this.container.innerHTML = "";
         }
 
-        this.activeScreen = screen
+        this.activeScreen = screen;
         this.activeScreen.initRender(this.container)
     }
 }
