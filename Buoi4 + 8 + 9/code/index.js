@@ -10,7 +10,7 @@ class App {
 
     changeActiveScreen(screen) {
         if (this.activeScreen !== undefined){
-            this.container.innerHTML = ""
+            this.container.innerHTML = "";
         }
 
         this.activeScreen = screen
