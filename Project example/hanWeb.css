@@ -16,20 +16,20 @@
     text-align: left;
     list-style: none;
 }
-.categories li {
+.categories > li {
     width: 100%;
     padding: 10px 10px 10px 10px;
     margin: 10px 10px 10px 0;
     font-size: larger;
 }
 
-.categories li:hover {
+.categories > li:hover {
     font-weight: 700;
     background-color: aliceblue;
     cursor: pointer;
 }
 
-.categories li svg {
+.categories > li > svg {
     margin-right: 5px;
 }
 
