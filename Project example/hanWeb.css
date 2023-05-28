@@ -1,0 +1,38 @@
+.my-nav {
+    background-color: white;
+}
+
+.logo {
+    margin: 10px;
+    padding: 10px;
+}
+
+.logo img {
+    max-height: 90px;
+}
+
+.categories {
+    justify-content: start;
+    text-align: left;
+    list-style: none;
+}
+.categories li {
+    width: 100%;
+    padding: 10px 10px 10px 10px;
+    margin: 10px 10px 10px 0;
+    font-size: larger;
+}
+
+.categories li:hover {
+    font-weight: 700;
+    background-color: aliceblue;
+    cursor: pointer;
+}
+
+.categories li svg {
+    margin-right: 5px;
+}
+
+.main-section {
+    background-color: rgb(237, 237, 237);
+}
