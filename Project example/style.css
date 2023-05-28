@@ -1,0 +1,31 @@
+body {
+    box-sizing: border-box;
+    justify-content: center;
+}
+.cards {
+    margin: auto;
+    display: flex;
+    width: 80%;
+
+}
+.card {
+    width: 200px;
+    height: 200px;
+    border-radius: 10px;
+    padding: 10px;
+    margin: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    box-shadow: 2px 2px 2px rgb(88, 86, 86);
+}
+
+.card:hover {
+    border: #4d4751 solid 4px; 
+}
+
+.card-icon {
+    width: 150px;
+    height: 150px;
+}

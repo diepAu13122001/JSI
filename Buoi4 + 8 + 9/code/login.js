@@ -31,7 +31,7 @@ class Login {
     this.$gotoSignupLink.addEventListener("click", this.gotoSignup);
 
     this.$containerDiv = document.createElement("div");
-    this.$containerDiv.classList.add("center", "app");
+    this.$containerDiv.classList.add("centering", "flex-column");
 
     this.$titleHeader = document.createElement("h2");
     this.$titleHeader.innerHTML = "Login";

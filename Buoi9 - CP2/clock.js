@@ -1,6 +1,6 @@
 class Clock {
-    constructor(index, min, sec) {
-        this.started = false;
+    constructor(index, min, sec, started) {
+        this.started = started;
         this.index = index;
         this.date = new Date(0, 0, 0, 0, min, sec);
         this.intervalId = null;
@@ -58,8 +58,8 @@ ol.innerHTML = "";
 for (let index = 0; index < clockList.length; index++) {
     let element = clockList[index];
     setFontend(element);
-
 }
+
 function setFontend(clock) {
     const li = document.createElement('li');
     li.id = clock.index;
